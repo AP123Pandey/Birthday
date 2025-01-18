@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sister!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #fff4e6, #ffeccf);
+    color: #333;
+    padding: 0;
+}
+
+#wishes {
+    text-align: center;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #ff8800;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.wish-card {
+    max-width: 600px;
+    margin: 15px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ffe082;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wish-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.wish-card p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.animate__animated.animate__fadeIn {
+    animation-duration: 1.5s;
+    animation-delay: 0.3s;
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    .wish-card p {
+        font-size: 1rem;
+    }
+}
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Custom Properties */
+        :root {
+            --primary-color: #ff69b4;
+            --secondary-color: #ff9ecd;
+            --text-color: #333;
+            --light-bg: #fff5f8;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('/api/placeholder/1200/800') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: animate__animated animate__fadeInDown 1s;
+        }
+
+        /* Gallery Grid */
+        .gallery {
+            padding: 4rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        /* Wishes Section */
+        .wishes {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .wish-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 2rem auto;
+            max-width: 600px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            animation: animate__animated animate__fadeIn 1s;
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Floating Hearts Animation */
+        .hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        @keyframes floatHeart {
+            0% { transform: translateY(100vh) scale(0); }
+            100% { transform: translateY(-100vh) scale(1); }
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            transform: rotate(45deg);
+            animation: floatHeart 4s linear infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+
+
+        /* Enhanced Hero Section */
+        .hero {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: linear-gradient(135deg, #fff5f8, #ffe6ef);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-text {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: #ff69b4;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .hero-text h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: #ff69b4;
+            animation: lineGrow 1.5s ease forwards;
+        }
+
+        .hero-name {
+            font-size: 2.5rem;
+            color: #ff9ecd;
+            margin: 1rem 0;
+            opacity: 0;
+            animation: fadeInSlide 0.8s ease forwards 0.5s;
+        }
+
+        .hero-message {
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeInSlide 0.8s ease forwards 1s;
+        }
+
+        .hero-cake {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .cake-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            animation: floatCake 3s ease-in-out infinite;
+        }
+
+        .cake {
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/300/300') center/cover;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+        }
+
+        .sparkles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            border-radius: 50%;
+            animation: sparkleFloat 2s linear infinite;
+        }
+
+        /* Animations */
+        @keyframes lineGrow {
+            0% { width: 0; }
+            100% { width: 100px; }
+        }
+
+        @keyframes fadeInSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatCake {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes sparkleFloat {
+            0% {
+                transform: translate(0, 0) scale(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Glowing effect */
+        .glow {
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255,105,180,0.2) 0%, rgba(255,105,180,0) 70%);
+            animation: glowPulse 2s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
+
+            .hero-text {
+                text-align: center;
+                align-items: center;
+                padding: 1rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-name {
+                font-size: 2rem;
+            }
+
+            .cake-container {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <!-- <nav>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#wishes">Wishes</a></li>
+            <li><a href="#about">About Sister</a></li>
+        </ul>
+    </nav> -->
+
+    <!-- Hero Section -->
+    <!-- <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="animate__animated animate__fadeInDown">Happy Birthday Sister!</h1>
+            <p class="animate__animated animate__fadeInUp">To the most amazing sister in the world ❤️</p>
+        </div>
+    </section> -->
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sister!</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        /* Previous styles remain same */
+
+        .message-container {
+            position: relative;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .message-container1 {
+           display: flex;
+        }
+
+        .birthday-heading {
+            font-size: 4rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #FF8C00, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .sister-name {
+            font-size: 2.5rem;
+            color: #FF8C00;
+            margin: 1rem 0;
+            font-family: 'Segoe UI', cursive;
+        }
+
+        .wish-text {
+            font-size: 1.2rem;
+            color: #333;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding: 0 1rem;
+        }
+
+        .special-message {
+            font-style: italic;
+            color: #FFA500;
+            margin: 1.5rem 0;
+            font-size: 1.3rem;
+        }
+
+        .message-card {
+            background: #FFF;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.1);
+            margin: 1rem;
+            animation: fadeInUp 1s ease;
+            max-width: 600px;
+        }
+
+        .quote {
+            font-size: 1.1rem;
+            color: #666;
+            border-left: 4px solid #FFD700;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+
+        .love-text {
+            color: #FF4500;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: floatHeart 4s ease-in infinite;
+            opacity: 0;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Decorative elements */
+        .decoration-text {
+            position: absolute;
+            font-size: 1.2rem;
+            color: #FFD700;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .dt1 { top: 10%; left: 10%; transform: rotate(-20deg); }
+        .dt2 { top: 20%; right: 10%; transform: rotate(15deg); }
+        .dt3 { bottom: 15%; left: 15%; transform: rotate(10deg); }
+        .dt4 { bottom: 25%; right: 15%; transform: rotate(-15deg); }
+
+        @media (max-width: 768px) {
+            .birthday-heading {
+                font-size: 2.5rem;
+            }
+            .sister-name {
+                font-size: 2rem;
+            }
+            .message-card {
+                margin: 1rem 0.5rem;
+                padding: 1.5rem;
+            }
+        }
+        /* Centering the container */
+.message-container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust according to your requirement */
+}
+
+/* Styling the image */
+.profile-image1 {
+    margin-left: 78px;
+    border-radius: 10%;
+    width: 594px;
+    height: 696px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for animation */
+.profile-image1:hover {
+    transform: scale(1.1); /* Enlarge the image slightly on hover */
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.3); /* Intensify the shadow */
+}
+
+
+@media (max-width: 768px) {
+
+    .message-container1 {
+    display: flex;
+    flex-direction: column;
+}
+    .birthday-heading {
+        font-size: 2.5rem;
+    }
+    .sister-name {
+        font-size: 2rem;
+    }
+    .wish-text,
+    .special-message,
+    .quote {
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+    .message-card {
+        margin: 1rem 0.5rem;
+        padding: 1.5rem;
+    }
+    .profile-image1 {
+        width: 90%; /* Adjust to fit container */
+        height: auto; /* Maintain aspect ratio */
+        margin-left: 0; /* Center-align for smaller screens */
+        display: block;
+        margin: 0 auto;
+    }
+    .decoration-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .birthday-heading {
+        font-size: 2rem;
+    }
+    .sister-name {
+        font-size: 1.5rem;
+    }
+    .wish-text,
+    .special-message,
+    .quote {
+        font-size: 0.9rem;
+    }
+    .message-card {
+        margin: 0.5rem;
+        padding: 1rem;
+    }
+    .profile-image1 {
+        width: 100%;
+        height: auto;
+    }
+    .decoration-text {
+        font-size: 0.9rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="message-container1">
+
+    <div class="message-container">
+        <h1 class="birthday-heading animate__animated animate__bounceIn">Happy Birthday!</h1>
+        <div class="sister-name animate__animated animate__fadeInUp">Dear Sister</div>
+        
+        <div class="message-card animate__animated animate__fadeInUp">
+            <p class="wish-text">
+                On this special day, I want to tell you how much joy and happiness you bring to my life. 
+                You're not just my sister, you're my best friend, my confidante, and my support system.
+            </p>
+            
+            <div class="special-message">
+                May your day be filled with endless laughter, sweet moments, and beautiful surprises!
+            </div>
+            
+            <div class="quote">
+                "A sister is a gift to the heart, a friend to the spirit, a golden thread to the meaning of life."
+            </div>
+            
+            <p class="wish-text">
+                Thank you for being the amazing person you are. Your smile lights up every room, and your 
+                kindness touches every heart. Here's to celebrating you and all the wonderful memories we share!
+            </p>
+            
+            <p class="love-text">
+                With lots of love and hugs ❤️<br>
+                Your Loving Sibling
+            </p>
+        </div>
+
+        <!-- Decorative floating text -->
+        <div class="decoration-text dt1">✨ Joy</div>
+        <div class="decoration-text dt2">💫 Love</div>
+        <div class="decoration-text dt3">⭐ Happiness</div>
+        <div class="decoration-text dt4">🌟 Dreams</div>
+
+        <div class="floating-hearts" id="floating-hearts"></div>
+    </div>
+    <div class="message-container2">
+        <img src="img1.jpg" alt="Birthday Girl" class="profile-image1" >
+        </div>
+    
+
+        <!-- Decorative floating text -->
+        <div class="decoration-text dt1">✨ Joy</div>
+        <div class="decoration-text dt2">💫 Masti</div>
+        <div class="decoration-text dt3">⭐ Happiness</div>
+        <div class="decoration-text dt4">🌟 Dreams</div>
+
+        <div class="floating-hearts" id="floating-hearts"></div>
+    </div>
+    </div>
+
+
+
+    <script>
+        function createHearts() {
+            const container = document.getElementById('floating-hearts');
+            const heartSymbols = ['❤️', '💖', '💝', '💕', '💗'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 4000);
+            }, 300);
+        }
+
+        createHearts();
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sister!</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        /* Previous styles remain same until message-container */
+
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .photo-section {
+            align-items: center;
+            position: relative;
+            padding: 1rem;
+        }
+
+        .photo-frame {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-frame:hover .profile-image {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 140, 0, 0.1),
+                rgba(255, 215, 0, 0.1)
+            );
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            font-style: italic;
+            color: #FF8C00;
+        }
+
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .thumbnail {
+            width: 100%;
+            height: 100px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .thumbnail.active {
+            border-color: #FFD700;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail:hover {
+            transform: translateY(-5px);
+        }
+
+        .photo-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .indicator-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #FFD700;
+            opacity: 0.5;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator-dot.active {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 968px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-frame {
+                height: 300px;
+            }
+
+            .thumbnail {
+                height: 80px;
+            }
+        }
+
+
+
+
+
+        
+    </style>
+</head>
+<body>
+    <div>
+    <div class="content-wrapper">
+        <!-- Photo Section -->
+        <div class="photo-section">
+            <div class="photo-frame">
+                <img src="imgN1.jpg" alt="Birthday Girl" class="profile-image" id="mainImage">
+                <div class="image-overlay"></div>
+                <div class="photo-caption">happy birthday</div>
+            </div>
+
+            <div class="thumbnail-grid">
+                <div class="thumbnail active" onclick="changeImage(0)">
+                    <img src="imgN2.jpg" alt="Thumbnail 1">
+                </div>
+                <div class="thumbnail" onclick="changeImage(1)">
+                    <img src="imgN3.jpg" alt="Thumbnail 2">
+                </div>
+                <div class="thumbnail" onclick="changeImage(2)">
+                    <img src="imgN1.jpg" alt="Thumbnail 3">
+                </div>
+            </div>
+
+            <div class="photo-indicator">
+                <div class="indicator-dot active"></div>
+                <div class="indicator-dot"></div>
+                <div class="indicator-dot"></div>
+            </div>
+        </div>
+
+        <!-- Message Section -->
+        <div class="message-container">
+            <img src="cake.avif" alt="Birthday Girl" class="profile-image1" >
+        </div>
+    </div>
+</div>
+
+    <script>
+        const images = [
+            'imgN2.jpg',
+            'imgN3.jpg',
+            'imgN1.jpg'
+        ];
+
+        function changeImage(index) {
+            const mainImage = document.getElementById('mainImage');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const dots = document.querySelectorAll('.indicator-dot');
+
+            // Update main image
+            mainImage.src = images[index];
+            mainImage.classList.add('animate__animated', 'animate__fadeIn');
+
+            // Update thumbnails
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            thumbnails[index].classList.add('active');
+
+            // Update indicators
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+        }
+
+        // Auto slideshow
+        let currentIndex = 0;
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % images.length;
+            changeImage(currentIndex);
+        }, 5000);
+    </script>
+</body>
+</html>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <h2>Precious Moments</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="imgG1.jpg" alt="Sister's Memory 1">
+            </div>
+            <div class="gallery-item">
+                <img src="imgG2.jpg" alt="Sister's Memory 2">
+            </div>
+            <div class="gallery-item">
+                <img src="imgG3.jpg" alt="Sister's Memory 3">
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Wishes Section -->
+    <section id="wishes" class="wishes">
+        <h2>Birthday Wishes</h2>
+        <div class="wish-card animate__animated animate__fadeIn">
+            <p>नजाकत और प्यार से भरी हो तेरी हर बात,<br>
+            जन्मदिन पर खुशियों से भर जाए तेरी सारी रात।<br>
+            सदा रहे तेरी जिंदगी में उमंग और साथ,<br>
+            बहन, तेरे चेहरे की मुस्कान बन जाए आसमान का चांद।</p>
+        </div>
+        <div class="wish-card animate__animated animate__fadeIn">
+            <p>तेरे जैसा बहन का प्यार अनमोल तोहफा है,<br>
+            तेरा हर सपना पूरा हो, यही दिल का वादा है।<br>
+            जन्मदिन की बधाई हो तुझे खास,<br>
+            तेरी खुशी से भर जाए यह सारा आकाश।</p>
+        </div>
+        <div class="wish-card animate__animated animate__fadeIn">
+            <p>आसमान भी छोटा है तेरे हौसलों के लिए,<br>
+            ये जन्मदिन लाए नई राहें खुशी के लिए।<br>
+            बहन, तू रहे सलामत और खिले तेरा चेहरा,<br>
+            हर दिन बन जाए तेरे लिए नई सेहरा।</p>
+        </div>
+    </section>
+    
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2>About My Sister</h2>
+            <p>A beautiful soul with a heart of gold. She's the one who makes everyone smile with her presence and recording moment like become a .</p>
+            <!-- Add more personal details here -->
+        </div>
+    </section>
+
+    <!-- Floating Hearts Animation -->
+    <div class="hearts">
+        <script>
+            function createHeart() {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+                document.querySelector('.hearts').appendChild(heart);
+                setTimeout(() => heart.remove(), 5000);
+            }
+            setInterval(createHeart, 300);
+        </script>
+    </div>
+</body>
+</html>
